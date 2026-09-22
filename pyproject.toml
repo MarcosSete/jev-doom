@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "jev-doom"
 version = "0.1.0"
@@ -12,14 +16,20 @@ dependencies = [
 ]
 
 
-
-[tool.ruff]
-line-length = 88
-target-version = "py312"
-
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
     "ruff>=0.16.8",
 ]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]           # <- aponta para a pasta src
+include = ["jev_doom*"]   # <- o nome do SEU pacote (não "app*")
