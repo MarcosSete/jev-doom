@@ -19,6 +19,11 @@ def main() -> None:
 
     print("ViZDoom iniciado.")
 
+    game.new_episode()
+
+    while not game.is_episode_finished():
+        game.make_action([0, 0, 0])
+
     game.close()
 
 
