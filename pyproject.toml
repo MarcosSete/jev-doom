@@ -31,6 +31,9 @@ target-version = "py312"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "integration: tests that call external services",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]           # <- aponta para a pasta src
