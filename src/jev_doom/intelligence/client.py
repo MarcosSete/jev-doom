@@ -1,15 +1,16 @@
 from typesafe_sdk import TypeSafeClient
 
+
 class JevClient:
 
     def __init__(self, **client_kwargs) -> None:
         self._client_kwargs = client_kwargs
 
     def __enter__(self) -> "JevClient":
-        self._client = TypeSafeClient()
+        self._client = TypeSafeClient(**self._client_kwargs)
         return self
 
-    def __exit__(self,exc_type, exc_value, traceback) -> None:
+    def __exit__(self, exc_type, exc_value, traceback) -> None:
         self._client.close()
 
     def system_one(self, **kwargs):
