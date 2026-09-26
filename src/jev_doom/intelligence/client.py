@@ -1,6 +1,10 @@
 from typesafe_sdk import TypeSafeClient
 
 class JevClient:
+
+    def __init__(self, **client_kwargs) -> None:
+        self._client_kwargs = client_kwargs
+
     def __enter__(self) -> "JevClient":
         self._client = TypeSafeClient()
         return self
